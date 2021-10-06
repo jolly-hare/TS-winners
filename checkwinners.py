@@ -30,15 +30,18 @@ for k, v in winners.items():
                     mult_winners[i] = []
                     mult_winners[i].extend([k, k2])
                     mult_winners[i] = list(set(mult_winners[i]))
-print('\n[0]=2 [1]=3 [2]=4 [3]=5 wins')
-wincounts = [0, 0, 0, 0]
+print('\n')
+wincounts = [0 for i in range(len(files))]
 for i in mult_winners:
-    if len(mult_winners[i]) == 2:
-        wincounts[0] += 1
-    elif len(mult_winners[i]) == 3:
-        wincounts[1] += 1
-    elif len(mult_winners[i]) == 4:
-        wincounts[2] += 1
-    elif len(mult_winners[i]) == 5:
-        wincounts[3] += 1
-print(wincounts)
+    count = len(mult_winners[i])
+    for j in range(len(files)):
+        if count == j+1:
+            wincounts[j] += 1
+        if count >= 4 and j == len(files)-1:
+            print(f'***** account {i} has {count} wins: *****\n{mult_winners[i]}\n')
+print('Accumulated multi-winners (# of wins: # of accounts):')
+for i in range(1, len(wincounts)):
+    print(f'{i+1}: {wincounts[i]}')
+
+
+
