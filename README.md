@@ -7,7 +7,6 @@ Happy to have anyone else take a look at the code; verify the data, and determin
 The data files contain the URL of the original winners list in line #1
 
 NBATopshot user @jolly_hare2634
-
 Twitter @ts_hare
 
 # Expected Output
